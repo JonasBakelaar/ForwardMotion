@@ -8,6 +8,7 @@ const express = require("express");
 const app     = express();
 const path    = require("path");
 const fileUpload = require('express-fileupload');
+const reqP = require('request-promise');
 
 app.use(fileUpload());
 
@@ -70,6 +71,35 @@ app.get('/uploads/:name', function(req , res){
 
 //******************** Your code goes here ******************** 
 app.use(express.static(require('path').join(__dirname,'public')));
+
+var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json',
+				'https://files.ontario.ca/en-2016-pssd-compendium-20171128-utf8.json',
+				'https://api.ontario.ca/api/data/31107?count=0&download=1',
+				'https://api.ontario.ca/api/data/25354?count=0&download=1',
+				'https://api.ontario.ca/api/data/38240?count=0&download=1',
+				'https://api.ontario.ca/api/data/38574?count=0&download=1',
+				'https://api.ontario.ca/api/data/46315?count=0&download=1',
+				'https://api.ontario.ca/api/data/46170?count=0&download=1'
+				];
+
+app.post('/refreshOntarioData', function(req, res) {
+	var dataNum = 0;
+	for (var i = 0; i < ontLinks.length;i++) {
+		reqP(ontLinks[i])
+			.then(function(html) {
+				dataNum++;
+				fs.writeFile("public/data/temp"+dataNum+".txt", html, function(err, html) {
+					if (err) console.log(err);
+					console.log("Wrote data to file");
+				});
+				console.log("Link Complete");
+			})
+			.catch(function(err){
+				console.log("error retrieving data for a link");
+			});
+	}
+});
+
 app.listen(portNum);
 console.log('Running app at localhost: ' + portNum);
 
