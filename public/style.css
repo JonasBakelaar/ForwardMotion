@@ -1,14 +1,5 @@
-html { 
-    height: 100%;
-    min-height: 100%;
-    margin: 0 auto;
-    font-size: 16px;
-    background-color: hsl(235, 48%, 98%);
-}
 body {
-    height: 100%;
-    min-height: 100%;
-    line-height: 1.75;
+
     background-color:hsl(235, 48%, 98%);
 }
 a:link:hover {
@@ -61,8 +52,28 @@ input[type=submit], button {
     display: flex;
 }
 
+.top {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
 .bottom {
     position:fixed;
     width: 100%;
     bottom: 0px;
+}
+
+.section {
+    margin-top: 100px;
+}
+
+.center-text {
+    text-align: center;
+    margin: auto;
+}
+
+#provBox {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
 }
