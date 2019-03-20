@@ -36,122 +36,131 @@
         </div>
     </nav>
 
-<!--Search Tabs Start-->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="basic" aria-selected="true">Basic Search</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="advanced-tab" data-toggle="tab" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">Advanced Search</a>
-        </li>
-    </ul>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class= "search-box">
+                  <!--Search Tabs Start-->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-bottom: 1.5%;">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="basic" aria-selected="true">Basic Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="advanced-tab" data-toggle="tab" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">Advanced Search</a>
+                        </li>
+                    </ul>
 
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="inputName1">Employee Name</label>
-                        <input type="text" class="form-control" id="inputName1" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputPosition1">Employee Position</label>
-                        <input type="text" class="form-control" id="inputPosition1" placeholder="Position">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputEmployer1">Employer</label>
-                        <input type="text" class="form-control" id="inputEmployer1" placeholder="Employer">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputName1">Employee Name</label>
+                                        <input type="text" class="form-control" id="inputName1" placeholder="Name">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputPosition1">Employee Position</label>
+                                        <input type="text" class="form-control" id="inputPosition1" placeholder="Position">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputEmployer1">Employer</label>
+                                        <input type="text" class="form-control" id="inputEmployer1" placeholder="Employer">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputName2">Employee Name</label>
+                                        <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputPosition2">Employee Position</label>
+                                        <input type="text" class="form-control" id="inputPosition2" placeholder="Position">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputEmployer2">Employer</label>
+                                        <input type="text" class="form-control" id="inputEmployer2" placeholder="Employer">
+                                    </div>
+                                    <div class="form-group col-md-2">  
+                                        <label>Province</label>
+
+                                        <div class="form-row">          
+                                            <div class="form-check" id="provBox">
+                                                <input class="form-check-input" type="checkbox" id="inputAB">
+                                                <label class="form-check-label" for="inputAB">
+                                                    AB
+                                                </label>
+                                            </div>   
+                                            <div class="form-check" id="provBox">
+                                                <input class="form-check-input" type="checkbox" id="inputBC">
+                                                <label class="form-check-label" for="inputBC">
+                                                    BC
+                                                </label>        
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">          
+                                            <div class="form-check" id="provBox">
+                                                <input class="form-check-input" type="checkbox" id="inputON">
+                                                <label class="form-check-label" for="inputON">
+                                                    ON
+                                                </label>
+                                            </div>   
+                                            <div class="form-check" id="provBox">
+                                                <input class="form-check-input" type="checkbox" id="inputALL">
+                                                <label class="form-check-label" for="inputALL">
+                                                    All
+                                                </label>        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">  
+                                    <div class="col-md-2">        
+                                        <label>Salary Range</label>        
+                                    </div>
+                                    <div class="col-md-2"></div>   
+                                    <div class="col-md-2">        
+                                        <label>Year Range</label>        
+                                    </div>
+                                    <div class="col-md-2"></div>   
+                                </div>
+
+                                <div class="form-row">  
+
+                                    <div class="form-group col-md-2">                
+                                        <input type="text" class="form-control" id="inputSalaryFrom" placeholder="From">
+                                    </div>-    
+                                    <div class="form-group col-md-2">     
+                                        <input type="text" class="form-control" id="inputSalaryTo" placeholder="To">
+                                    </div>   
+
+                                    <div class="form-group col-md-2">                        
+                                        <input type="text" class="form-control" id="inputYearFrom" placeholder="From">
+                                    </div> -   
+                                    <div class="form-group col-md-2">                    
+                                        <input type="text" class="form-control" id="inputYearTo" placeholder="To">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>    
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
+            </div>    
         </div>
-
-        <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="inputName2">Employee Name</label>
-                        <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputPosition2">Employee Position</label>
-                        <input type="text" class="form-control" id="inputPosition2" placeholder="Position">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputEmployer2">Employer</label>
-                        <input type="text" class="form-control" id="inputEmployer2" placeholder="Employer">
-                    </div>
-                    <div class="form-group col-md-2">  
-                        <label>Province</label>
-
-                        <div class="form-row">          
-                            <div class="form-check" id="provBox">
-                                <input class="form-check-input" type="checkbox" id="inputAB">
-                                <label class="form-check-label" for="inputAB">
-                                    AB
-                                </label>
-                            </div>   
-                            <div class="form-check" id="provBox">
-                                <input class="form-check-input" type="checkbox" id="inputBC">
-                                <label class="form-check-label" for="inputBC">
-                                    BC
-                                </label>        
-                            </div>
-                        </div>
-
-                        <div class="form-row">          
-                            <div class="form-check" id="provBox">
-                                <input class="form-check-input" type="checkbox" id="inputON">
-                                <label class="form-check-label" for="inputON">
-                                    ON
-                                </label>
-                            </div>   
-                            <div class="form-check" id="provBox">
-                                <input class="form-check-input" type="checkbox" id="inputALL">
-                                <label class="form-check-label" for="inputALL">
-                                    All
-                                </label>        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">  
-                    <div class="col-md-2">        
-                        <label>Salary Range</label>        
-                    </div>
-                    <div class="col-md-2"></div>   
-                    <div class="col-md-2">        
-                        <label>Year Range</label>        
-                    </div>
-                    <div class="col-md-2"></div>   
-                </div>
-
-                <div class="form-row">  
-
-                    <div class="form-group col-md-2">                
-                        <input type="text" class="form-control" id="inputSalaryFrom" placeholder="From">
-                    </div>-    
-                    <div class="form-group col-md-2">     
-                        <input type="text" class="form-control" id="inputSalaryTo" placeholder="To">
-                    </div>   
-
-                    <div class="form-group col-md-2">                        
-                        <input type="text" class="form-control" id="inputYearFrom" placeholder="From">
-                    </div> -   
-                    <div class="form-group col-md-2">                    
-                        <input type="text" class="form-control" id="inputYearTo" placeholder="To">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </div>
-
-                </div>
-            </form>
-        </div>    
     </div>
-<!--Search Tabs End-->
+
+
 
 
     <footer style = "background-color: #263238" class="page-footer font-small bottom">
