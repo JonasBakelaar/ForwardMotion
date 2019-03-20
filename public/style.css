@@ -66,3 +66,8 @@ input[type=submit], button {
     width: 100%;
     bottom: 0px;
 }
+
+#provBox {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
