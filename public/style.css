@@ -1,16 +1,15 @@
-html {
-    width: 60%;
+html { 
     height: 100%;
     min-height: 100%;
     margin: 0 auto;
     font-size: 16px;
-    background-color: #4C442C;
+    background-color: hsl(235, 48%, 98%);
 }
 body {
     height: 100%;
     min-height: 100%;
     line-height: 1.75;
-    background-color: #ECEBE4;
+    background-color:hsl(235, 48%, 98%);
 }
 a:link:hover {
     -webkit-transition: all 0.3s ease;
@@ -43,20 +42,15 @@ input[type=submit], button {
     }
 }
 
-.header {
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:101;
-    width:100%;
-    height:80px;
-    max-height: 60px;
-    background-color:#BA7397;
-    background:#C8C2AE;
-    color:rgb(44, 51, 58);
-    display:block;
-    border-top:2px #0EB1D2 solid;
-    box-sizing:border-box;
+.nav-title {
+    color: hsl(255, 100%, 100%);
+    text-align: center;
+    display:inline-block;
+}
+
+.home-button {
+    font-size : 24px;
+    color: hsl(255, 100%, 100%);
 }
 .cont {
     width: 100%;
@@ -65,4 +59,10 @@ input[type=submit], button {
     margin-right:0;
     padding:0;
     display: flex;
+}
+
+.bottom {
+    position:fixed;
+    width: 100%;
+    bottom: 0px;
 }
