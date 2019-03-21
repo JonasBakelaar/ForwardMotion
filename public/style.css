@@ -82,4 +82,12 @@ input[type=submit], button {
     margin-right: 1.5%;
 }
 
+.tableSection {
+    margin: auto;
+    padding-top: 3%;
+    visibility: hidden;
+}
+
+
+
 
