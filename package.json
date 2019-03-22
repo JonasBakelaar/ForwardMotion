@@ -12,6 +12,7 @@
     "express": "^4.16.2",
     "express-fileupload": "^0.4.0",
     "ffi": "^2.2.0",
+    "firebase": "^5.8.4",
     "http": "0.0.0",
     "javascript-obfuscator": "^0.14.3",
     "mysql": "^2.15.0",

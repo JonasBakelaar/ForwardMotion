@@ -72,7 +72,7 @@ app.get('/uploads/:name', function(req , res){
 //******************** Your code goes here ******************** 
 app.use(express.static(require('path').join(__dirname,'public')));
 
-var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json',
+/*var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json',
 				'https://files.ontario.ca/en-2016-pssd-compendium-20171128-utf8.json',
 				'https://api.ontario.ca/api/data/31107?count=0&download=1',
 				'https://api.ontario.ca/api/data/25354?count=0&download=1',
@@ -80,24 +80,41 @@ var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json',
 				'https://api.ontario.ca/api/data/38574?count=0&download=1',
 				'https://api.ontario.ca/api/data/46315?count=0&download=1',
 				'https://api.ontario.ca/api/data/46170?count=0&download=1'
-				];
+				];*/
+var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json'];
+var dataPoints = [];//Array of ontario data use dataPoints.[attribute]
 
+/*
+ * Generates the data set from the above list of links and stores into dataPoints
+ * Any errors when retreiving the data are not re-pulled
+ * */
 app.post('/refreshOntarioData', function(req, res) {
-	var dataNum = 0;
+	var completedLinks = 0;
+	var toDoLinks = ontLinks.length;
 	for (var i = 0; i < ontLinks.length;i++) {
 		reqP(ontLinks[i])
 			.then(function(html) {
-				dataNum++;
-				fs.writeFile("public/data/temp"+dataNum+".txt", html, function(err, html) {
-					if (err) console.log(err);
-					console.log("Wrote data to file");
-				});
+				dataPoints = dataPoints.concat(JSON.parse(html));
+				completedLinks++;
 				console.log("Link Complete");
 			})
 			.catch(function(err){
 				console.log("error retrieving data for a link");
+				toDoLinks--;
+			})
+			.finally(function () {
+				if (completedLinks == toDoLinks) {//Once all links have completed this will be called
+					res.sendStatus(200);
+				}
 			});
 	}
+});
+
+app.get('/getTableData', function(req, res) {
+	var numRows = Number(req.query['rows']);
+	var startRow = Number(req.query['startIndex']);
+	var tableData = dataPoints.slice(startRow, startRow + numRows);
+	res.send(tableData);
 });
 
 app.listen(portNum);

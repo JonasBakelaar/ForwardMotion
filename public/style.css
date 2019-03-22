@@ -66,6 +66,7 @@ input[type=submit], button {
 
 .section {
     margin-top: 100px;
+    margin-bottom: 10%;
 }
 
 .center-text {
@@ -85,7 +86,6 @@ input[type=submit], button {
 .tableSection {
     margin: auto;
     padding-top: 3%;
-    visibility: hidden;
 }
 
 
