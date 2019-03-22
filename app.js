@@ -72,7 +72,7 @@ app.get('/uploads/:name', function(req , res){
 //******************** Your code goes here ******************** 
 app.use(express.static(require('path').join(__dirname,'public')));
 
-/*var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json',
+var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json',
 				'https://files.ontario.ca/en-2016-pssd-compendium-20171128-utf8.json',
 				'https://api.ontario.ca/api/data/31107?count=0&download=1',
 				'https://api.ontario.ca/api/data/25354?count=0&download=1',
@@ -80,8 +80,7 @@ app.use(express.static(require('path').join(__dirname,'public')));
 				'https://api.ontario.ca/api/data/38574?count=0&download=1',
 				'https://api.ontario.ca/api/data/46315?count=0&download=1',
 				'https://api.ontario.ca/api/data/46170?count=0&download=1'
-				];*/
-var ontLinks = ['https://files.ontario.ca/en-2018-pssd-compendium.json'];
+				];
 var dataPoints = [];//Array of ontario data use dataPoints.[attribute]
 
 /*
