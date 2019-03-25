@@ -95,14 +95,14 @@ app.post('/refreshOntarioData', function(req, res) {
 			.then(function(html) {
 				dataPoints = dataPoints.concat(JSON.parse(html));
 				completedLinks++;
-				console.log("Link Complete");
 			})
 			.catch(function(err){
 				console.log("error retrieving data for a link");
 				toDoLinks--;
 			})
 			.finally(function () {
-				if (completedLinks == toDoLinks) {//Once all links have completed this will be called
+				if (completedLinks >= toDoLinks) {//Once all links have completed this will be called
+					console.log("Links Complete");
 					res.sendStatus(200);
 				}
 			});
