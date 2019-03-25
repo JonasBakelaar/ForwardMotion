@@ -12,17 +12,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/style.css">
     <!-- Custom CSS End -->
 </head>
 <body>
-    <nav style = "background-color: #263238;" class="navbar navbar-expand-lg navbar-dark static-top top">
+    <nav style = "background-color: #263238; z-index: 100;" class="navbar navbar-expand-lg navbar-dark static-top top">
         <div class="container">
 
             <h4 class="nav-title">Provincial Salary Analyzer</h4>
-            
+
             <ul class="navbar-nav ml-auto">
                 <li>
                     <a class="nav-link" href="index.html">
@@ -66,8 +67,16 @@
                                         <label for="inputEmployer1">Employer</label>
                                         <input type="text" class="form-control" id="inputEmployer1" placeholder="Employer">
                                     </div>
+
+                                    <div class="form-group col-md-1.5">
+                                            <label style = "visibility: hidden;" for="inputEmployer1">S</label>
+                                            <button type="submit" class="btn btn-primary form-control">Search</button>
+                                        </div>
+                                        <div class="form-group col-md-1.5">
+                                            <label style = "visibility: hidden;" for="inputEmployer1">C</label>
+                                            <button type="reset" class="btn btn-primary form-control">Clear</button>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Search</button>
                             </form>
                         </div>
 
@@ -86,77 +95,79 @@
                                         <label for="inputEmployer2">Employer</label>
                                         <input type="text" class="form-control" id="inputEmployer2" placeholder="Employer">
                                     </div>
-                                    <div class="form-group col-md-2">  
+                                    <div class="form-group col-md-2">
                                         <label>Province</label>
 
-                                        <div class="form-row">          
+                                        <div class="form-row">
                                             <div class="form-check" id="provBox">
                                                 <input class="form-check-input" type="checkbox" id="inputAB">
                                                 <label class="form-check-label" for="inputAB">
                                                     AB
                                                 </label>
-                                            </div>   
+                                            </div>
                                             <div class="form-check" id="provBox">
                                                 <input class="form-check-input" type="checkbox" id="inputBC">
                                                 <label class="form-check-label" for="inputBC">
                                                     BC
-                                                </label>        
+                                                </label>
                                             </div>
                                         </div>
 
-                                        <div class="form-row">          
+                                        <div class="form-row">
                                             <div class="form-check" id="provBox">
                                                 <input class="form-check-input" type="checkbox" id="inputON">
                                                 <label class="form-check-label" for="inputON">
                                                     ON
                                                 </label>
-                                            </div>   
+                                            </div>
                                             <div class="form-check" id="provBox">
                                                 <input class="form-check-input" type="checkbox" id="inputALL">
                                                 <label class="form-check-label" for="inputALL">
                                                     All
-                                                </label>        
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">  
-                                    <div class="col-md-2">        
-                                        <label>Salary Range</label>        
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>Salary Range</label>
                                     </div>
-                                    <div class="col-md-2"></div>   
-                                    <div class="col-md-2">        
-                                        <label>Year Range</label>        
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <label>Year Range</label>
                                     </div>
-                                    <div class="col-md-2"></div>   
+                                    <div class="col-md-2"></div>
                                 </div>
 
-                                <div class="form-row">  
+                                <div class="form-row">
 
-                                    <div class="form-group col-md-2">                
+                                    <div class="form-group col-md-2">
                                         <input type="text" class="form-control" id="inputSalaryFrom" placeholder="From">
-                                    </div>-    
-                                    <div class="form-group col-md-2">     
+                                    </div>-
+                                    <div class="form-group col-md-2">
                                         <input type="text" class="form-control" id="inputSalaryTo" placeholder="To">
-                                    </div>   
+                                    </div>
 
-                                    <div class="form-group col-md-2">                        
+                                    <div class="form-group col-md-2">
                                         <input type="text" class="form-control" id="inputYearFrom" placeholder="From">
-                                    </div> -   
-                                    <div class="form-group col-md-2">                    
+                                    </div> -
+                                    <div class="form-group col-md-2">
                                         <input type="text" class="form-control" id="inputYearTo" placeholder="To">
                                     </div>
-                                    <div class="form-group col-md-2">
+                                    <div class="form-group col-md-1">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                     </div>
-
+                                    <div class="form-group col-md-1">
+                                        <button type="reset" class="btn btn-primary">Clear</button>
+                                    </div>
                                 </div>
                             </form>
-                        </div>    
+                        </div>
                     </div>
                 </div>
-            </div>    
+            </div>
             <div class="row">
                 <div class="tableSection">
                     <table class="table table-hover table-bordered">
@@ -176,8 +187,11 @@
                     </table>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" id="prevSet"><</button>
-            <button type="button" class="btn btn-primary" style="float:right;" id="nextSet">></button>
+            <button style = "font-size: 20px;" type="button" class="btn btn-primary" id="prevSet"><</button>
+            <button class="btn csv-download"><i class="fa fa-download"></i> Download CSV File</button>
+            <button class="btn view-graphs"><i class="fa fa-pie-chart"></i> View Salary Graphs</button>
+            <button class="btn view-stats"><i class="fa fa-dollar"></i> View Salary Statistics</button>
+            <button type="button" class="btn btn-primary" style="float:right; font-size: 20px;" id="nextSet">></button>
         </div>
     </div>
 
@@ -193,10 +207,3 @@
     <script src="/index.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
