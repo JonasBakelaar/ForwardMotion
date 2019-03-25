@@ -1,5 +1,4 @@
 body {
-
     background-color:hsl(235, 48%, 98%);
 }
 a:link:hover {
@@ -138,6 +137,5 @@ input[type=submit], button {
     color: white;
     background-color: rgb(187, 67, 31);
 }
-
 
 

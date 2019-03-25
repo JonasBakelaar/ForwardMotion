@@ -190,13 +190,62 @@
             <button style = "font-size: 20px;" type="button" class="btn btn-primary" id="prevSet"><</button>
             <button class="btn csv-download"><i class="fa fa-download"></i> Download CSV File</button>
             <button class="btn view-graphs"><i class="fa fa-pie-chart"></i> View Salary Graphs</button>
-            <button class="btn view-stats"><i class="fa fa-dollar"></i> View Salary Statistics</button>
+            <button id="statsBtn" class="btn view-stats" data-toggle="modal" data-target="#myModal"><i class="fa fa-dollar"></i> View Salary Statistics</button>
             <button type="button" class="btn btn-primary" style="float:right; font-size: 20px;" id="nextSet">></button>
         </div>
     </div>
 
+    <div class="container">
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Statistics</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">            
+                                <div class="col-md-6">Highest Salary</div>
+                                <div class="col-md-6"><span><input type="text" value="$306,871.05" class="field left" readonly></span></div>      
+                            </div>  
+                            <div class="row">            
+                                <div class="col-md-6">Lowest Salary</div>
+                                <div class="col-md-6"><span><input type="text" value="$100,054.6" class="field left" readonly></span></div>      
+                            </div>  
+                            <div class="row">            
+                                <div class="col-md-6">Mean</div>
+                                <div class="col-md-6"><span><input type="text" value="$120,944.58" class="field left" readonly></span></div>      
+                            </div>  
+                            <div class="row">            
+                                <div class="col-md-6">Median</div>
+                                <div class="col-md-6"><span><input type="text" value="$109,300.70" class="field left" readonly></span></div>      
+                            </div>  
+                            <div class="row">            
+                                <div class="col-md-6">Mode</div>
+                                <div class="col-md-6"><span><input type="text" value="$101,769.81" class="field left" readonly></span></div>      
+                            </div>  
+                            <div class="row">            
+                                <div class="col-md-6">Standard Deviation</div>
+                                <div class="col-md-6"><span><input type="text" value="$26,728.80" class="field left" readonly></span></div>      
+                            </div>  
+                        </div>
+                    </div>
 
-
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>  
+                </div>
+            </div>
+        </div>
+           
 
     <footer style = "background-color: #263238" class="page-footer font-small bottom">
         <div style = "color: #FFFFFF" class="footer-copyright text-center py-3">© 2019 Copyright:
