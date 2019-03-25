@@ -89,5 +89,51 @@ input[type=submit], button {
 }
 
 
+.csv-download {
+    background-color: green;
+    width: 29.5%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: .75%;
+    margin-right: 0.5%;
+}
+
+.csv-download:hover {
+    background-color: darkgreen;
+}
+
+.view-stats {
+    background-color: purple;
+    width: 29.5%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 0.5%;
+    margin-right: .75%;
+}
+
+.view-stats:hover {
+    background-color: rgb(83, 0, 83);
+}
+
+.view-graphs {
+    background-color: rgb(223, 81, 37);
+    width: 29.5%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+.view-graphs:hover {
+    color: white;
+    background-color: rgb(187, 67, 31);
+}
+
 
 
