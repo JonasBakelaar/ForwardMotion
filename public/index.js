@@ -1,4 +1,4 @@
-var maxRows = 2000;
+var maxRows = 100;
 var tableIndex = 0;
 
 // Put all onload AJAX calls here, and event listeners
@@ -50,8 +50,7 @@ $(document).ready(function() {
               success: function (data) {
                 console.log("Successfully inserted a row!");
               }
-            });
-            */
+            });*/
 					});
 				},
 				fail: function(error) {
@@ -112,6 +111,44 @@ $("#searchButton").click(function(){
 	});
 });
 
+
+$("#advancedSearchButton").click(function(){
+  let rangeFrom = $('#inputSalaryFrom').val();
+  let rangeTo = $('#inputSalaryTo').val();
+  console.log("Searching");
+  if(rangeFrom == "" || rangeFrom == "") {
+    console.log("Can't search!");
+  } else {
+    $.ajax({
+  		type: 'get',            //Request type
+  		dataType: 'json',       //Data type - we will use JSON for almost everything
+  		url: '/advancedSearchDatabase',   //The server endpoint we are connecting to
+  		data: {
+        rangeFrom : rangeFrom,
+    		rangeTo : rangeTo
+  		},
+  		success: function (data) {
+        if(data === "failure"){
+          console.log("Fail");
+        } else {
+          console.log("records found!");
+          console.log(data);
+
+          clearDataTable();
+          data.forEach(function(entry) {
+            console.log(entry);
+            addSearchDataToTableONT(entry);
+    			});
+        }
+  		},
+  		fail: function(error) {
+  			// Non-200 return, do something with error
+  			console.log(error);
+  		}
+  	});
+  }
+});
+
 function clearDataTable(){
   var bod = $("#Tbody");
   bod.html("")
@@ -122,7 +159,7 @@ function addSearchDataToTableONT(searchData){
 	bod.append("<tr>");
 	bod.append("<th>"+searchData.lastName+"</th>");
 	bod.append("<th>"+searchData.firstName+"</th>");
-	bod.append("<th>"+searchData.salary+"</th>");
+	bod.append("<th>$"+searchData.salary+"</th>");
 	bod.append("<th>"+searchData.employer+"</th>");
 	bod.append("<th>"+searchData.jobTitle+"</th>");
 	bod.append("<th>Ontario</th>");

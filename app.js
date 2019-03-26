@@ -151,6 +151,9 @@ app.get('/insertRow', function(req , res){
     let lastName = req.query.lastName;
     let firstName = req.query.firstName;
     let salary = req.query.salary;
+    salary = salary.replace(/,/g, '');
+    salary = salary.substr(1);
+    console.log("Salary: " + salary);
     let employer = req.query.employer;
     let jobTitle = req.query.jobTitle;
     let year = req.query.year;
@@ -158,7 +161,7 @@ app.get('/insertRow', function(req , res){
     let fileTableExists = true;
     let individualTableExists = true;
 
-    connection.query("insert into test2 (lastName, firstName, salary, employer, jobTitle, year) values ('" + lastName + "', '"+ firstName +"', '"+ salary +"', '"+ employer +"', '"+ jobTitle +"', '"+ year +"')", function (err, rows, fields) {
+    connection.query("insert into test3 (lastName, firstName, salary, employer, jobTitle, year) values ('" + lastName + "', '"+ firstName +"', '"+ salary +"', '"+ employer +"', '"+ jobTitle +"', '"+ year +"')", function (err, rows, fields) {
         if (err) console.log(err);
         failure = true;
     });
@@ -180,7 +183,33 @@ app.get('/searchDatabase', function(req , res){
     let fileTableExists = true;
     let individualTableExists = true;
 
-    connection.query("SELECT * FROM test2 WHERE employer LIKE '%"+ employer +"%' LIMIT 5", function (err, rows, fields) {
+    connection.query("SELECT * FROM test3 WHERE employer LIKE '%"+ employer +"%' LIMIT 50", function (err, rows, fields) {
+        if (err){
+          console.log(err);
+          failure = true;
+        }
+
+        console.log("searched successfully");
+        if(failure === true){
+    	  	console.log('sending failure');
+    	  	res.send("failure");
+      	} else {
+        	console.log("sending success");
+          console.log(rows);
+        	res.send(rows);
+    	  }
+    });
+});
+
+app.get('/advancedSearchDatabase', function(req , res){
+    console.log('Inserting data!');
+    let range1 = req.query.rangeFrom;
+    let range2 = req.query.rangeTo;
+    let failure = false;
+    let fileTableExists = true;
+    let individualTableExists = true;
+
+    connection.query("SELECT * FROM test3 WHERE salary > "+range1+" AND salary < "+range2+" ORDER BY salary DESC LIMIT 50", function (err, rows, fields) {
         if (err){
           console.log(err);
           failure = true;
