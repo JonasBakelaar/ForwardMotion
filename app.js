@@ -106,8 +106,13 @@ app.post('/refreshOntarioData', function(req, res) {
 				toDoLinks--;
 			})
 			.finally(function () {
+<<<<<<< HEAD
 				if (completedLinks == toDoLinks) {//Once all links have completed this will be called
   				console.log("Link Complete");
+=======
+				if (completedLinks >= toDoLinks) {//Once all links have completed this will be called
+					console.log("Links Complete");
+>>>>>>> 1289ea2acc1a6465f6e303db1bfafd62f4c8fb2a
 					res.sendStatus(200);
 				}
 			});
