@@ -62,11 +62,11 @@ app.post('/upload', function(req, res) {
 });
 
 //Respond to GET requests for files in the uploads/ directory
-app.get('/uploads/:name', function(req , res){
-  fs.stat('uploads/' + req.params.name, function(err, stat) {
+app.get('/files/:name', function(req , res){
+  fs.stat('files/' + req.params.name, function(err, stat) {
     console.log(err);
     if(err == null) {
-      res.sendFile(path.join(__dirname+'/uploads/' + req.params.name));
+      res.sendFile(path.join(__dirname+'/files/' + req.params.name));
     } else {
       res.send('');
     }
@@ -183,7 +183,7 @@ app.get('/searchDatabase', function(req , res){
     let fileTableExists = true;
     let individualTableExists = true;
 
-    connection.query("SELECT * FROM test3 WHERE employer LIKE '%"+ employer +"%' LIMIT 50", function (err, rows, fields) {
+    connection.query("SELECT * FROM test3 WHERE employer LIKE '%"+ employer +"%' ORDER BY salary DESC LIMIT 50", function (err, rows, fields) {
         if (err){
           console.log(err);
           failure = true;
